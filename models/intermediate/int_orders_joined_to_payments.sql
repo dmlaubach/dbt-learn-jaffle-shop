@@ -22,8 +22,8 @@ select
     orders.customer_id,
     orders.order_placed_at,
     orders.order_status,
-    payments.total_amount_paid,
-    payments.payment_finalized_date,
+    payments.payment_amount,
+    payments.created_at,
     customers.customer_first_name,
     customers.customer_last_name
 
