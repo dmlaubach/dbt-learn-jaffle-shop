@@ -1,0 +1,21 @@
+models:
+  - name: dim_customers
+    description: "The final table for customers, including lifetime value and order history."
+    columns:
+      - name: customer_id
+        description: "Unique identifier for a customer."
+        tests:
+          - unique
+          - not_null
+
+      - name: first_order_date
+        description: "The date of the first order placed by this customer."
+
+      - name: most_recent_order_date
+        description: "The date of the most recent order placed by this customer."
+
+      - name: number_of_orders
+        description: "Total count of orders placed by this customer."
+
+      - name: lifetime_value
+        description: "Total amount spent by this customer across all orders."
