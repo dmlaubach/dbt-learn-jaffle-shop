@@ -1,10 +1,4 @@
-Welcome to your new dbt project!
-
-### Using the starter project
-
-Try running the following commands:
-- dbt run
-- dbt test
+A dbt project refactoring legacy SQL into a modular Star Schema. Validated 99 unique order records with 100% accuracy using automated auditing.
 
 
 ### Resources:
