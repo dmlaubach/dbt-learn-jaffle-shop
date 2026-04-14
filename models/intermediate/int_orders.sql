@@ -6,7 +6,7 @@ order_values as (
     select
         order_id,
         payment_amount -- This must match the name in stg_stripe__payment
-    from {{ ref('stg_stripe__payment') }}
+    from {{ ref('int_payments_grouped_by_order') }}
 )
 
 select

@@ -13,7 +13,7 @@ orders as (
 payments as (
     -- Note: We are referencing the singular version 'payment' 
     -- because that's the one with the total_amount_paid logic
-    select * from {{ ref('stg_stripe__payment') }}
+    select * from {{ ref('int_payments_grouped_by_order') }}
 )
 
 -- Logical CTE

@@ -9,7 +9,7 @@ with orders as (
 ),
 
 payments as (
-    select * from {{ ref('stg_stripe__payment') }}
+    select * from {{ ref('int_payments_grouped_by_order') }}
 ),
 
 customers as (
