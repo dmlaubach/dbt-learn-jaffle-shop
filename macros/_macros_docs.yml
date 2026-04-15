@@ -2,21 +2,21 @@ version: 2
 
 macros:
   - name: cents_to_dollars
-    description: A macro that converts dollars to cents and rounds to the number of decimal places
+    description: "Converts cents to dollars and rounds."
     arguments:
       - name: column_name
         type: string
-        description: The name of the column you want to convert
+        description: "The name of the column you want to convert"
       - name: decimals
         type: integer
-        description: number of decimal places, defaults to 2
+        description: "Number of decimal places, defaults to 2"
+
   - name: grant_select
-    description: a macro that grants select privs on schema on target.schema to target.role unless otherwise specified
-    arguements: 
+    description: "Grants select privs on schema to role unless otherwise specified"
+    arguments:
       - name: schema
         type: string
-        description:schema we want to grant privs on, by default is our target schema 
+        description: "The schema to grant privs on"
       - name: role
         type: string
-        description: role we want to grant privs to, by default is our target role 
-
+        description: "The role to grant privs to"
