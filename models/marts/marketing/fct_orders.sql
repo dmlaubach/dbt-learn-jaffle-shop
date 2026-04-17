@@ -1,7 +1,9 @@
 {{
-  config(
-    materialized='table'
-  )
+    config(
+        materialized='incremental',
+        unique_key = 'order_id',
+        incremental_strategy = 'merge'
+    )
 }}
 
 with orders as (
@@ -67,3 +69,8 @@ final as (
 )
 
 select * from final
+
+{% if is_incremental() %}
+    -- this filter will only be applied on an incremental run
+    where order_placed_at >= (select max(order_placed_at) from {{ this }}) 
+{% endif %}
