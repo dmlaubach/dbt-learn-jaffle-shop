@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: int_orders
+    columns:
+      - name: payment_amount
+        tests:
+          - average_dollars_spent_greater_than_one:
+              arguments:
+                group_by_column: customer_id
