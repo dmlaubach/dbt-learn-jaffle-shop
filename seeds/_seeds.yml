@@ -1,0 +1,12 @@
+version: 2
+seeds:
+  - name: employees
+    description: a csv employee_id, email, and customer_id
+    columns:
+      - name: employee_id
+      - name: customer_id
+      - name: email
+        tests:
+          - unique
+          - not_null
+          
