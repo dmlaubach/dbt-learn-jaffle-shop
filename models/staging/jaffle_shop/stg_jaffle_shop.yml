@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg_jaffle_shop__customers
+    description: "Staging customer data from our app."
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_jaffle_shop__orders
+    description: "Staging order data."
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
