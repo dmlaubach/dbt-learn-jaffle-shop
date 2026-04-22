@@ -6,5 +6,29 @@ models:
     columns:
       - name: payment_id
         tests:
-          - unique
+          - unique:
+              # (a) Error if > 100 records fail, Warn if > 10
+              config:
+                severity: error
+                error_if: ">100"
+                warn_if: ">10"
           - not_null
+
+      - name: payment_method
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['credit_card', 'coupon', 'bank_transfer', 'gift_card']
+              # (b) Only test this where status is success
+              config:
+                where: "status = 'success'"
+
+      - name: status
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['success', 'fail']
+              # (c & d) Limit to 10 failures and store them in Snowflake
+              config:
+                limit: 10
+                store_failures: true

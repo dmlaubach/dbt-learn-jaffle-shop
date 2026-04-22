@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: fct_orders
+    description: "The final fact table for orders, created during the refactoring lab."
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
+
+      - name: total_amount_paid
+        description: "The total dollar amount of the order."
+        tests:
+          - dbt_expectations.expect_column_values_to_be_between:
+              arguments:
+                min_value: 0
+                strictly: true
+                config:
+                  limit: 5
+                  severity: warn
+                  store_failures: false
+          - dbt_expectations.expect_column_mean_to_be_between:
+              arguments:
+                min_value: 1
+                group_by: [customer_id] # This is the "magic" that groups the data  
+          
