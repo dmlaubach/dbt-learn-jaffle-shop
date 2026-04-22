@@ -1,7 +1,6 @@
 select 
     order_id, 
-    payment_amount, 
-    order_status,
-    customer_id
-from {{ ref('int_orders') }}
-where payment_amount <= 0
+    count(*) as row_count
+from {{ ref('fct_orders') }}
+group by 1
+having count(*) > 1
