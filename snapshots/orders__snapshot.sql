@@ -1,0 +1,17 @@
+{% snapshot order_snapshot %}
+
+{{
+    config(
+      target_database='analytics',
+      target_schema=target.schema, 
+      unique_key='id',
+      strategy='check',
+      check_cols=['id', 'user_id', 'order_date', 'status'],
+      hard_deletes='ignore',
+      dbt_valid_to_current="to_date('9999-12-31')"
+    )
+}}
+
+select * from {{ source('jaffle_shop', 'orders') }}
+
+{% endsnapshot %}
