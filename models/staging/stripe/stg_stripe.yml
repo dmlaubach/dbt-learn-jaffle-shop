@@ -21,9 +21,9 @@ models:
                 values: ['credit_card', 'coupon', 'bank_transfer', 'gift_card']
               # (b) Only test this where status is success
               config:
-                where: "status = 'success'"
+                where: "payment_status = 'success'"
 
-      - name: status
+      - name: payment_status
         tests:
           - accepted_values:
               arguments:
