@@ -50,3 +50,5 @@ final as (
 )
 
 select * from final
+
+--meaningless comment for testing
