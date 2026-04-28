@@ -1,13 +1,20 @@
-{%- macro generate_schema_name(custom_schema_name, node) -%}
+{% macro generate_schema_name(custom_schema_name, node) -%}
 
     {%- set default_schema = target.schema -%}
-    {%- set env = env_var('DBT_ENV_NAME') -%}
 
-    {%- if custom_schema_name is none or env == 'dev' -%}
+    {%- if custom_schema_name is none -%}
 
-        {{ default_schema | trim }}
+        {{ default_schema }}
+
+    {#- IF WE ARE IN PROD, WE JUST WANT CUSTOM_SCHEMA_NAME -#}
+    {%- elif env_var('DBT_ENV_NAME') in ['prod'] -%}
+
+        {{ custom_schema_name | trim }}
+
+    {%- else -%}
+
+        {{ default_schema }}_{{ custom_schema_name | trim }}
 
     {%- endif -%}
 
-{%- endmacro -%}
-
+{%- endmacro %}
