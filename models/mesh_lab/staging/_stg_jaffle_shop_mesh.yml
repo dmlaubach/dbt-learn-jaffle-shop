@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: stg_mesh_items
+    description: "Line items from the mesh source"
+    columns:
+      - name: item_id
+        tests: [unique, not_null]
+
+  - name: stg_mesh_orders
+    description: "Orders from the mesh source"
+    columns:
+      - name: order_id
+        tests: [unique, not_null]
+
+  - name: stg_mesh_products
+    description: "Product catalog"
+
+  - name: stg_mesh_stores
+    description: "Store locations"
+
+  - name: stg_mesh_supplies
+    description: "Supply inventory"

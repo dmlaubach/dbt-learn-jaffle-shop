@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: jaffle_shop_mesh
+    database: raw
+    schema: jaffle_shop_mesh
+    tables:
+      - name: customers
+      - name: orders
+      - name: items
+      - name: products
+      - name: stores
+      - name: supplies
+      
