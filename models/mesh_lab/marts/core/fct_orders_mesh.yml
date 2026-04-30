@@ -22,3 +22,11 @@ models:
         data_type: number
       - name: tax_paid
         data_type: number
+      - name: raw_subtotal
+        data_type: number
+      - name: raw_tax_paid
+        data_type: number
+      - name: subtotal_variance
+        data_type: number
+      - name: is_subtotal_reconciled
+        data_type: boolean
