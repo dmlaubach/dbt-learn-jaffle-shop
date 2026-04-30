@@ -2,6 +2,7 @@ version: 2
 
 models:
   - name: fct_orders_mesh
+    latest_version: 2
     config:
       contract:
         enforced: true
@@ -30,3 +31,17 @@ models:
         data_type: number
       - name: is_subtotal_reconciled
         data_type: boolean
+
+    versions:
+      - v: 1
+        deprecation_date: 2026-12-10
+        config: 
+          alias: fct_orders_mesh_v1
+      - v: 2
+        config: 
+          alias: fct_orders_mesh
+        columns:
+          - name: order_date
+            data_type: date
+          - include: all
+            exclude: [ordered_at]
