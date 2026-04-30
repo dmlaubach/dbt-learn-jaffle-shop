@@ -4,6 +4,8 @@ models:
   - name: fct_orders_mesh
     latest_version: 2
     config:
+      group: finance
+      access: public
       contract:
         enforced: true
     columns:
