@@ -16,8 +16,6 @@ models:
         data_type: timestamp_ntz
       - name: store_name
         data_type: varchar
-      - name: status
-        data_type: varchar
       - name: count_items
         data_type: integer
       - name: subtotal
