@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: fct_orders_mesh
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: order_id
+        data_type: varchar
+        constraints:
+          - type: not_null
+      - name: customer_id
+        data_type: varchar
+      - name: ordered_at
+        data_type: timestamp_ntz
+      - name: store_name
+        data_type: varchar
+      - name: count_items
+        data_type: integer
+      - name: subtotal
+        data_type: number
+      - name: tax_paid
+        data_type: number
+      - name: raw_subtotal
+        data_type: number
+      - name: raw_tax_paid
+        data_type: number
+      - name: subtotal_variance
+        data_type: number
+      - name: is_subtotal_reconciled
+        data_type: boolean
