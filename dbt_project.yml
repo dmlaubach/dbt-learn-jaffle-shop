@@ -41,14 +41,21 @@ tests:
 
 models:
   jaffle_shop:
-    # Applies to all files under models/example/
-    
     staging:
-          +materialized: view
-          +meta:
-            required_tests:
-              "unique.*|not_null": 2
+      +materialized: view
+      +meta:
+        required_tests:
+          "unique.*|not_null": 2
     marts:
       +materialized: table
-    legacy:        # <--- Add this section
+    legacy:
       +materialized: view
+
+    mesh_lab:
+      +materialized: table
+      +group: finance      # Putting the whole wing in the Finance Group
+      marts:
+        core:
+          +access: public  # Letting other projects see these "Data Products"
+      staging:
+        +access: private   # Keeping the "Raw Material" hidden inside Finance
